@@ -33,7 +33,7 @@
 *   **Java**: [JDK 21](https://www.oracle.com/java/technologies/downloads/) 이상 설치 필수
 
 ### 2. 설치 단계
-1.  이 저장소의 **Release**에서 최신 버전을 다운로드합니다.
+1.  오른쪽 **Release**에서 서버 팩을 다운로드합니다.
 2.  **서버 구동기(Paper) 다운로드**:
     *   [PaperMC 공식 다운로드 링크 (1.21.11)](https://papermc.io/downloads/paper)
     *   위 링크에서 최신 빌드를 다운로드하세요.
