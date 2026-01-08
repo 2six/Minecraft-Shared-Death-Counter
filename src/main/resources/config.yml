@@ -1,13 +1,11 @@
-# 기본 목숨 설정
-default-lives: 3
+default-lives: 3    # 리셋 후 시작할 기본 목숨
 
 # 서버 MOTD 설정
 # 플레이스홀더: {earth} 현재 지구 번호 {lives} 남은 목숨
 server-settings:
-  motd: "§e현재 지구: §f#{earth}   §c남은 목숨: §f{lives}"  # 서버 MOTD 설정
+  motd: "§e현재 지구: §f#{earth}   §c남은 목숨: §f{lives}"
 
-# 액션바(HUD) 표시 설정 (true/false)
-display:
+display:    # 액션바(HUD) 표시 설정 (true/false)
   lives: true       # 공유 목숨 표시
   individual-deaths: true # 개인별 누적 사망 횟수 표시
   earth: true       # 지구(시즌) 번호 표시
@@ -21,7 +19,7 @@ gamerules:
 settings:
   allow-deaths-command: true # /sdc deaths 명령어 사용 가능 여부
 
-# 5. 메시지 커스텀
+# 메시지 커스텀
 messages:
   kick-reason: "§4§l[{earth}번째 지구 붕괴]§c\n\n세계가 소멸했습니다.\n잠시 후 {earth_next}번째 지구가 생성됩니다."
   new-earth-title: "§b§l새 지구"
