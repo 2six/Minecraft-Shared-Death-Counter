@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.UUID;
 
 public class SDCCommand implements CommandExecutor {
 
@@ -22,7 +21,6 @@ public class SDCCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         
-        // 1. /sdc deaths 명령어 처리 (권한 체크 및 설정 확인)
         if (args.length >= 1 && args[0].equalsIgnoreCase("deaths")) {
             if (!plugin.getConfig().getBoolean("settings.allow-deaths-command", true)) {
                 sender.sendMessage("§c이 명령어는 비활성화되어 있습니다.");
@@ -32,14 +30,16 @@ public class SDCCommand implements CommandExecutor {
             return true;
         }
 
-        // 2. 관리자 명령어 처리 (OP 전용)
         if (!sender.isOp()) {
-            sender.sendMessage("§c권한이 없습니다.");
+            // 일반 유저가 /sdc 또는 이상한 명령어를 쳤을 때 안내
+            sender.sendMessage("§f - /sdc deaths : 접속자 사망 현황 확인");
+            sender.sendMessage("§f - /sdc deaths <닉네임> : 특정 유저 사망 횟수 확인");
             return true;
         }
 
+        // 관리자 명령어
         if (args.length == 0) {
-            sender.sendMessage("§cUsage: /sdc <status|reset|hardreset|setlife|addlife|deaths>");
+            sender.sendMessage("§c[관리자] Usage: /sdc <status|reset|hardreset|setlife|addlife|deaths>");
             return true;
         }
 
@@ -98,12 +98,16 @@ public class SDCCommand implements CommandExecutor {
                     confirmMap.put(sender, System.currentTimeMillis());
                 }
                 break;
+
+            default:
+                sender.sendMessage("§c알 수 없는 명령어입니다.");
+                break;
         }
         return true;
     }
 
     private void handleDeathsCommand(CommandSender sender, String[] args) {
-        // 1. 인수가 없을 때 (/sdc deaths) -> 접속 중인 모든 플레이어 목록 표시
+        // 인수가 없을 때 (/sdc deaths) -> 접속 중인 모든 플레이어 목록
         if (args.length == 1) {
             sender.sendMessage("§6§l[ ☠ 접속자 사망 현황 ]");
             boolean found = false;
@@ -119,7 +123,7 @@ public class SDCCommand implements CommandExecutor {
             return;
         }
 
-        // 2. 특정 플레이어 조회 (/sdc deaths <닉네임>)
+        // 특정 플레이어 조회 (/sdc deaths <닉네임>)
         String targetName = args[1];
         Player target = Bukkit.getPlayer(targetName);
 

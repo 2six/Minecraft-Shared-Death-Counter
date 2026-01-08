@@ -19,6 +19,21 @@ if exist "saved_stats" (
 echo [System] Launching Java...
 echo -----------------------------------------
 
+REM Check for server.jar
+if not exist "server.jar" (
+    echo.
+    echo [ERROR] server.jar not found!
+    echo.
+    echo 1. download the latest PaperMC server jar file at papermc.io.
+    echo 2. change the file name to server.jar.
+    echo 3. put it in this folder and run again.
+    echo.
+    echo [Opening download site...]
+    start https://papermc.io/downloads/paper
+    pause
+    exit
+)
+
 REM 3. Server Start
 REM -Xms4G -Xmx4G: Set initial and maximum heap size to 4GB
 REM Adjust memory settings as needed
