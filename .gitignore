@@ -1,0 +1,28 @@
+# 컴파일 결과물 무시
+target/
+out/
+build/
+*.class
+
+# IDE 설정 무시
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+
+# 서버 구동 관련 파일 무시 (소스코드만 올리기 위해)
+world/
+world_nether/
+world_the_end/
+logs/
+plugins/
+saved_stats/
+crash-reports/
+server.jar
+eula.txt
+server-icon.png
+*.log
+*.lock
+*.flag
