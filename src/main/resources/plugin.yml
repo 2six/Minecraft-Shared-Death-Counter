@@ -2,7 +2,7 @@ name: SharedDeathCounter
 version: 1.0
 main: me.sdc.SharedDeathCounter
 api-version: 1.21
-author: haline920
+author: Lee6
 description: Shared lives hardcore plugin
 commands:
   sdc:
